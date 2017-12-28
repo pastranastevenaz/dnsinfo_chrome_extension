@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+
+  "name": "DNS INFO",
+  "description": "Used to find the DNS info of the current page",
+  "version": "1.0",
+  "content_security_policy": "script-src 'self' https://unpkg.com; object-src 'self'",
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs"
+  ]
+}

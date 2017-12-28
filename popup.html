@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <title>DNS INFO</title>
+    <style type="text/css">
+      body {
+        margin: 10px;
+        white-space: nowrap;
+      }
+
+      h1 {
+        font-size: 15px;
+      }
+
+      #container {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="content.js"></script>
+    <script src="popup.js"></script>
+  </head>
+
+  <body>
+    <h1>DNS Info</h1>
+    <div id="container">
+      <p>Current domain is: <span id="status"></span>
+    </div>
+  </body>
+</html>
