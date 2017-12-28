@@ -4,7 +4,7 @@
   "name": "DNS INFO",
   "description": "Used to find the DNS info of the current page",
   "version": "1.0",
-  "content_security_policy": "script-src 'self' https://unpkg.com; object-src 'self'",
+  "content_security_policy": "script-src 'self' https://unpkg.com https://maxcdn.bootstrapcdn.com; object-src 'self'",
   "background": {
     "scripts": ["background.js"]
   },
