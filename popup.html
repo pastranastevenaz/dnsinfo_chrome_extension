@@ -8,12 +8,29 @@
 
     <style type="text/css">
       body {
-        margin: 10px;
+        margin: 8px;
         /*white-space: nowrap;*/
         height: 200px;
-        width: 400px;
-        position: relative;
-        vertical-align:middle;
+        width: 580px;
+        /*position: relative;*/
+        /*vertical-align:middle;*/
+      }
+
+      hr{
+        border: 0;
+        height: 1px;
+        background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+        background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+        background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+        background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+      }
+
+      footer{
+        padding-top: 2em;
+        padding-bottom: 1em;
+      }
+      .micro{
+        font-size: .8em;
       }
 
       /*h1 {*/
@@ -38,10 +55,40 @@
     <div id="container">
       <h3>DNS Info</h3>
       <h4 id="status"></h4>
+
+      <!-- <div class="row">
+        <div class="col-xs-4">
+          <div class="demo-content">.col-xs-4</div>
+        </div>
+        <div class="col-xs-4">
+          <div class="demo-content bg-alt">.col-xs-4</div>
+        </div>
+        <div class="col-xs-4">
+          <div class="demo-content">.col-xs-4</div>
+        </div>
+      </div> -->
+
       <h5>A Records </h5>
       <ul id="a-records"></ul>
       <h5>MX Records</h5>
       <ul id="mx-records"></ul>
+      <h5>CNAME Records</h5>
+      <ul id"cname-records"></ul>
+      <h5>TXT Records</h5>
+      <ul id="txt-records"></ul>
+      <h5>SOA Records</h5>
+      <ul id-"soa-records"></ul>
+      <hr>
+      <h5>NameServers</h5>
+      <ul id="ns-records"></ul>
+      <hr>
+      <a id="feedback-button" href="#" class="btn btn-info btn-sm btn-block"><span class="glyphicon glyphicon-edit"></span> Feedback</a>
+      <footer class="footer">
+        <div class="container">
+          <span class="text-muted">Created with </span><span class="glyphicon glyphicon-heart"></span></span class="text-muted"> by Steven Antonio</span>
+          <br><span class="micro">See the code </span><a class="micro">here</a>
+        </div>
+      </footer>
     </div>
   </body>
 </html>
