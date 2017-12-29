@@ -210,13 +210,3 @@ document.addEventListener('DOMContentLoaded', function() {
     nsRecordLookup(_cleanURL);
   });
 });
-
-
-// DOMAIN PREFIXES
-var a_domain_prefix='https://dns-api.org/A/';
-var aaaa_domain_prefix='https://dns-api.org/AAAA/';
-var mx_domain_prefix='https://dns-api.org/MX/';
-var cn_domain_prefix='https://dns-api.org/CNAME/';
-var soa_domain_prefix='https://dns-api.org/SOA/';
-var txt_domain_prefix='https://dns-api.org/TXT/';
-var ns_domain_prefix='https://dns-api.org/NS/';
