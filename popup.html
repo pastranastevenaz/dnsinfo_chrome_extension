@@ -1,94 +1,208 @@
 <!doctype html>
 <html>
-  <head>
-    <title>DNS INFO</title>
+<head>
+  <title>DNS INFO</title>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-    <style type="text/css">
-      body {
-        margin: 8px;
-        /*white-space: nowrap;*/
-        height: 200px;
-        width: 580px;
-        /*position: relative;*/
-        /*vertical-align:middle;*/
-      }
+  <style type="text/css">
+  body {
+    margin: 8px;
+    padding : 10px ;
+    min-height: 360px;
+    width: 580px;
+    background-color: #333;
+  }
 
-      hr{
-        border: 0;
-        height: 1px;
-        background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-        background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-        background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-        background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
-      }
+  #plugin-title{
+    color: #eee;
+  }
 
-      footer{
-        padding-top: 2em;
-        padding-bottom: 1em;
-      }
-      .micro{
-        font-size: .8em;
-      }
+  #status{
+    color: #eee;
+  }
 
-      /*h1 {*/
-        /*font-size: 15px;*/
-      /*}*/
+  hr{
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+    background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+    background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+    background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  }
 
-      /*#container {*/
-        /*align-items: center;*/
-        /*display: flex;*/
-        /*justify-content: space-between;*/
-      /*}*/
-    </style>
+  .records li{
+    font-size: .9em;
+    color: #555;
+  }
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="jquery-3.2.1.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="popup.js"></script>
-  </head>
+  .records p{
+    font-size: .9em;
+    color: #555;
+  }
 
-  <body>
-    <div id="container">
-      <h3>DNS Info</h3>
-      <h4 id="status"></h4>
+  .records-title{
+    color: #555;
+    font-size: 1em;
+    font-weight: 700;
+  }
 
-      <!-- <div class="row">
-        <div class="col-xs-4">
-          <div class="demo-content">.col-xs-4</div>
+  footer{
+    padding-top: 2em;
+    padding-bottom: 1em;
+  }
+  .micro{
+    font-size: .8em;
+  }
+
+
+
+  body {
+    padding : 10px ;
+
+  }
+
+  #exTab1 .tab-content {
+    color : #555;
+    background-color: #eee;
+    padding : 5px 15px;
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  #exTab1 a {
+    color: #eee;
+  }
+
+  #exTab2 h3 {
+    color : white;
+    background-color: #eee;
+    padding : 5px 15px;
+  }
+
+
+  .nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover{
+    color: #555 !important;
+    background-color: #eee;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 2px;
+  }
+  /* remove border radius for the tab */
+
+  #exTab1 .nav-pills > li > a {
+    border-radius: 0;
+  }
+
+  /* change border radius for the tab , apply corners on top*/
+
+  #exTab3 .nav-pills > li > a {
+    border-radius: 4px 4px 0 0 ;
+  }
+
+  #exTab3 .tab-content {
+    color : white;
+    background-color: #eee;
+    padding : 5px 15px;
+  }
+
+
+  #heart{
+    color: red;
+  }
+
+
+
+
+  </style>
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="jquery-3.2.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="popup.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <h3 id="plugin-title">DNS Info</h3>
+    <h4 id="status"></h4>
+
+
+
+    <div id="exTab1" class="container">
+
+      <ul  class="nav nav-pills">
+        <li class="active">
+          <a  href="#1a" data-toggle="tab">DNS Info</a>
+        </li>
+        <li>
+          <a href="#2a" data-toggle="tab">Who Is</a>
+        </li>
+      </ul>
+
+      <div class="tab-content clearfix">
+        <div class="tab-pane active" id="1a">
+          <h5 class="records-title">A Records </h5>
+          <ul class="records" id="a-records"></ul>
+          <h5 class="records-title">MX Records</h5>
+          <ul class="records" id="mx-records"></ul>
+          <h5 class="records-title">CNAME Records</h5>
+          <ul class="records" id"cname-records"></ul>
+          <h5 class="records-title">TXT Records</h5>
+          <ul class="records" id="txt-records"></ul>
+          <h5 class="records-title">SOA Records</h5>
+          <ul class="records" id-"soa-records"></ul>
+          <hr>
+          <h5 class="records-title">NameServers</h5>
+          <ul class="records" id="ns-records"></ul>
         </div>
-        <div class="col-xs-4">
-          <div class="demo-content bg-alt">.col-xs-4</div>
-        </div>
-        <div class="col-xs-4">
-          <div class="demo-content">.col-xs-4</div>
-        </div>
-      </div> -->
+        <div class="tab-pane" id="2a">
+          <h5 class="records-title">General</h5>
+            <div class="records" id="general">
 
-      <h5>A Records </h5>
-      <ul id="a-records"></ul>
-      <h5>MX Records</h5>
-      <ul id="mx-records"></ul>
-      <h5>CNAME Records</h5>
-      <ul id"cname-records"></ul>
-      <h5>TXT Records</h5>
-      <ul id="txt-records"></ul>
-      <h5>SOA Records</h5>
-      <ul id-"soa-records"></ul>
-      <hr>
-      <h5>NameServers</h5>
-      <ul id="ns-records"></ul>
-      <hr>
-      <a id="feedback-button" href="#" class="btn btn-info btn-sm btn-block"><span class="glyphicon glyphicon-edit"></span> Feedback</a>
-      <footer class="footer">
-        <div class="container">
-          <span class="text-muted">Created with </span><span class="glyphicon glyphicon-heart"></span></span class="text-muted"> by Steven Antonio</span>
-          <br><span class="micro">See the code </span><a class="micro">here</a>
+            </div>
+          <h5 class="records-title">Registrant</h5>
+            <div class="records" id="registrant">
+
+            </div>
+          <h5 class="records-title">Admin Contact</h5>
+            <div class="records" id="admin">
+
+            </div>
+          <h5 class="records-title">Tech Contact</h5>
+            <div class="records" id="tech">
+
+            </div>
+          <h5 class="records-title">Misc</h5>
+            <div class="records" id="misc">
+
+            </div>
         </div>
-      </footer>
+      </div>
+
     </div>
-  </body>
+
+
+
+
+
+
+
+
+
+    <hr>
+    <!-- <a id="feedback-button" href="#" class="btn btn-info btn-sm btn-block"><span class="glyphicon glyphicon-edit"></span> Feedback</a> -->
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Created with </span><span id="heart" class="glyphicon glyphicon-heart"></span><span class="text-muted"> by Steven Antonio</span>
+        <!-- <br><span class="micro">See the code </span><a href="https://github.com/pastranastevenaz/dnsinfo_chrome_extension" class="micro">here</a> -->
+      </div>
+    </footer>
+  </div>
+</body>
 </html>
