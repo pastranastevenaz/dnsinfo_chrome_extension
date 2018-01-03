@@ -28,20 +28,6 @@ function cleanURL(dirtyURL){
   return a
 }
 
-// function lookupDNS(_prefix, _domain){
-//   var [lookupPrefix, lookupDomain] = [_prefix, _domain];
-//   console.log("THe lookip is: "+lookupPrefix+lookupDomain);
-//   axios.get(lookupPrefix+lookupDomain)
-//   .then(function (response){
-//     var jsonResponse = response.data;
-//     console.log(jsonResponse);
-//     return jsonResponse;
-//   })
-//   .catch(function (error){
-//     console.log(error);
-//   });
-// }
-
 function aRecordLookup(domain){
   var a = domain;
   axios.get('https://dns-api.org/A/'+a)
