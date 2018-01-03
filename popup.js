@@ -24,7 +24,6 @@ function cleanURL(dirtyURL){
     .replace('www.', '')
     .replace('://', '')
     .replace(/\/$/, '')
-  console.log(a);
   return a
 }
 
@@ -135,9 +134,7 @@ function soaRecordLookup(domain){
   var a = domain;
   axios.get('https://dns-api.org/SOA/'+a)
   .then(function (response){
-    // console.log(response);
     var jsonResponse = response.data;
-    // console.log(jsonResponse);
     var soarecords = document.getElementById("soa-records");
     for(var i = 0; i < jsonResponse.length; i++){
       var stringResponseName = JSON.stringify(jsonResponse[i].name);
@@ -187,19 +184,10 @@ function whoisLookup(domain){
   var key = 'at_8yZNk8iKZRmxRXqaC1np3J7qqNscJ';
   var a = domain;
   var queryString = queryPrefix + key + "&domainName=" + a + "&outputFormat=JSON";
-  console.log(queryString);
   axios.get(queryString)
   .then(function (response){
-    console.log("==============");
-    console.log(response.data.WhoisRecord.createdDate);
-
     var created = JSON.stringify(response.data.WhoisRecord.createdDate);
-    console.log("CREATED DATE: "+created);
     var updated = JSON.stringify(response.data.WhoisRecord.updatedDate);
-    console.log("UDATED DATE: "+updated);
-    // var expired = JSON.stringify(response.date.WhoisRecord.expiresDate);
-    // console.log("EXPIRED DATE: " + expiresDate);
-    // // REGISTRANT ///////////////
     var registrantName = JSON.stringify(response.data.WhoisRecord.registrant.name);
     var registrantOrganization = JSON.stringify(response.data.WhoisRecord.registrant.organization);
     var registrantStreet = JSON.stringify(response.data.WhoisRecord.registrant.street1);
@@ -279,8 +267,6 @@ function displayWhoIs(_created, _updated, _registrantName, _registrantOrganizati
                 var tech = document.getElementById("tech");
                 var misc = document.getElementById("misc")
 
-                console.log("Created: "+_created);
-                console.log(adminValues[2]);
                 var genValPrefix = ["Created: ", "Updated: "];
                 var regValPrefix = ["Name: ", "Organization: ", "Address: ", "City: ", "State: ",
                 "Postal Code: ", "Country: ", "Telephone: ", "Fax: "];
@@ -302,7 +288,6 @@ function displayWhoIs(_created, _updated, _registrantName, _registrantOrganizati
                   registrant.appendChild(nodeCreated);
                 }
 
-                console.log("Looped "+i + " times" + adminValues);
                 // POPULATE THE ADMIN FIELD
                 for(var i = 0; i < adminValues.length; i++){
                   var nodeCreated = document.createElement("p");
@@ -335,8 +320,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // });
   getCurrentTabUrl(function(url) {
     var _cleanURL = cleanURL(url);
-    console.log("dirty url: " + url);
-    console.log("clean url: " + _cleanURL);
     renderURL(_cleanURL);
     aRecordLookup(_cleanURL);
     mxRecordLookup(_cleanURL);
